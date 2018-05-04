@@ -82,6 +82,9 @@ else
 	fin up
 fi
 
+# Run composer install
+composer install
+
 # Start database sync
 echo -e "${green_bg} Step 1 ${NC}${green} Import database from:${NC}"
 
