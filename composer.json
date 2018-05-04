@@ -1,0 +1,6 @@
+{
+  "name": "electriccitizen/ec-docksal",
+  "description": "Install docksal for EC build.",
+  "type": "project",
+  "license": "MIT"
+}
