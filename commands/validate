@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+
+## Validate a Docksal powered local against Pantheon master.
+##
+## Usage: fin validate
+
+# Abort if anything fails
+set -e
+
+# SETTINGS
+
+SITE_DIRECTORY="default"
+DOCROOT_PATH="${PROJECT_ROOT}/${DOCROOT}"
+SITEDIR_PATH="${DOCROOT_PATH}/sites/${SITE_DIRECTORY}"
+
+# HELPERS
+
+# Console colors
+red='\033[0;31m'
+green='\033[0;32m'
+green_bg='\033[42m'
+yellow='\033[1;33m'
+NC='\033[0m'
+
+echo-red () { echo -e "${red}$1${NC}"; }
+echo-green () { echo -e "${green}$1${NC}"; }
+echo-green-bg () { echo -e "${green_bg}$1${NC}"; }
+echo-yellow () { echo -e "${yellow}$1${NC}"; }
+
+# Windows check and fix for (something?)
+is_windows ()
+{
+	local res=$(uname | grep 'CYGWIN_NT')
+	if [[ "$res" != "" ]]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+# Validate against master
+function validate () {
+
+if [[ "$PROJECT_ROOT" == "" ]]; then
+	echo-red "\$PROJECT_ROOT is not set"
+	exit 1
+fi
+
+# Check for a clean repository
+if ! [ -z "$(git status --untracked-files=no --porcelain)" ]; then
+  # Uncommitted changes in tracked files
+  echo -e  "${red}You have uncommitted changes in your branch.${NC}"
+  echo
+  echo -e "Commit or stash your changes prior to continuing, and then re-run fin sync:"
+  echo
+  git status
+  exit 1
+fi
+
+# Make sure docksal is running
+fin up
+
+# Pull from master
+echo -e "${green_bg} Step 1 ${NC}${green} Running git pull from $GIT_BRANCH ${NC}"
+cd $PROJECT_ROOT
+git pull origin $GIT_BRANCH
+
+# Run composer install
+echo -e "${green_bg} Step 2 ${NC}${green} Running composer install...${NC}"
+composer install
+
+# Run db updates
+echo -e "${green_bg} Step 3 ${NC}${green} Running database updates...${NC}"
+fin drush updb -y
+
+# Run entity updates
+echo -e "${green_bg} Step 4 ${NC}${green} Running entity updates...${NC}"
+fin drush entup -y
+
+# Configure things for local development environment.
+echo -e "${green_bg} Step 5 ${NC}${green} Importing config...${NC}"
+fin drush cim -y
+
+# Clear cache
+echo -e "${green_bg} Step 6 ${NC}${green} Clearing caches...${NC}"
+fin drush cr all
+
+echo -en "${green_bg} VALIDATION COMPLETE! ${NC} "
+echo -e "Open ${yellow}http://${VIRTUAL_HOST}${NC} in your browser to verify the setup."
+
+exit
+}
+
+# Execute
+clear
+echo-green "You are about to pull and import configuration from the Github $GIT_BRANCH branch"
+echo-green "and run a series of sanity checks to make sure your code is ready to merge."
+echo
+echo-green "If you have not already exported your active configuration to code, the import "
+echo-green "process will override your work, and you will lose your changes."
+echo
+echo-green "Are you sure you want to continue?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) validate exit;;
+        No ) exit;;
+    esac
+done

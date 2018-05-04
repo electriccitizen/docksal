@@ -74,24 +74,24 @@ if ! [ -z "$(git status --untracked-files=no --porcelain)" ]; then
 fi
 
 # Make sure docksal is running
-if [[ $DOCKER_RUNNING == "true" ]]; then
-	echo -e "${green_bg} Step 1 ${NC}${green} Recreating services...${NC}"
-	fin reset -f
-else
-	echo -e "${green_bg} Step 1 ${NC}${green} Creating services...${NC}"
-	fin up
-fi
+fin up
 
 # Start database sync
 echo -e "${green_bg} Step 1 ${NC}${green} Import database from:${NC}"
 
-time sync_db
-
+all_done=0
+while (( !all_done )); do
+    options=($PANTHEON_SITE_ENV 'none' 'exit')
+    select opt in "${options[@]}"; do
+        case $REPLY in
+            1) _sync_db; exit ;;
+            2) _sync_config; exit ;;
+            3) exit ;;
+            *) echo "Invalid option" ;;
+     esac
+    done
+done
 
 exit
 
 sleep 2
-#-------------------------- END: Execution --------------------------------
-
-
-
