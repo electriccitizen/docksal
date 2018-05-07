@@ -32,15 +32,15 @@ if is_windows; then
 fi
 
 # DB updates
-echo -e "${green_bg} Step 4 ${NC}${green} Running db updates...${NC}"
+echo -e "${green_bg} Step 5 ${NC}${green} Running db updates...${NC}"
 fin drush updb -y
 
 # Entity definition updates
-echo -e "${green_bg} Step 5 ${NC}${green} Running entity updates...${NC}"
+echo -e "${green_bg} Step 6 ${NC}${green} Running entity updates...${NC}"
 fin drush entup -y
 
 # Import config
-echo -e "${green_bg} Step 6 ${NC}${green} Importing config...${NC}"
+echo -e "${green_bg} Step 7 ${NC}${green} Importing config...${NC}"
 if [CIMFLAG = "skip:cim"]; then
     fin drush cim -y
 else
@@ -48,7 +48,7 @@ else
 fi
 
 # Clear cache
-echo -e "${green_bg} Step 7 ${NC}${green} Clearing caches...${NC}"
+echo -e "${green_bg} Step 8 ${NC}${green} Clearing caches...${NC}"
 fin drush cr all
 
 echo -en "${green_bg} SYNC COMPLETE! ${NC} "
