@@ -21,9 +21,8 @@ echo-yellow () { echo -e "${yellow}$1${NC}"; }
 sync_config ()
 {
 
-#Check for cim flag
-CIMFLAG=$
-
+#Check for cim flag argument
+CIMFLAG=$1
 
 # No idea why this is needed but i abide
 if is_windows; then

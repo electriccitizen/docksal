@@ -6,6 +6,16 @@
 
 Make sure that your project was cloned into your defined Docksal project folder. By default this is ~/Projects unless you set up a different folder during initial setup. 
 
+
+**It looks like 'docksal' docker machine is not running.**
+Run 'fin vm start' to start it now? [y/n]: y
+Starting "docksal"...
+(docksal) Waiting for an IP...
+
+Reset your Virtualbox host (docksal) either in the Virtualbox Manager gui or by running this command:
+
+```VBoxManage controlvm "docksal" reset```
+
 **Cannot start your vm or unexplained Docker daemon errors**
 
 Sometimes Docker and Virtualbox can get out of whack. In order you might try:

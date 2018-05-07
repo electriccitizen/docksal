@@ -25,3 +25,4 @@ After running ```fin sync``` successfully, you will have an exact clone of the u
 
 [back to README](../../README.md)
 
+*<small>This is an auto-generated document. Keep any custom documents in the ```custom``` folder.</small>*

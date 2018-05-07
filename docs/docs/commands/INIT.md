@@ -24,3 +24,5 @@ The ```fin init``` command is used to spin up your local environment for the fir
 After running ```fin init``` successfully, you will have an exact clone of the upstream environment (code and database.) During active development, you will typically run the [fin sync](SYNC.md) command instead of ```fin init```. See other [available commands](COMMANDS.md) here.
 
 [back to README](../../README.md)
+
+*<small>This is an auto-generated document. Keep any custom documents in the ```custom``` folder.</small>*

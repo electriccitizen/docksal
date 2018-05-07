@@ -70,12 +70,12 @@ See this guide to [following a safe workflow](docs/workflow/WORKFLOW.md) when us
 
 These documents contain other important information about the project and working with your local environment.
 
-* [Frontend/theming](docs/frontend/THEME.md)
-* [Project notes](docs/custom/NOTES.md)
-* [Working with Docksal](docs/local/DOCKSAL.md)
-* [Troubleshooting](docs/local/TROUBLESHOOT.md)
+* [Available commands](docs/commands/COMMANDS.md) 
 * [Following a safe workflow](docs/workflow/WORKFLOW.md)
-* [Available commands](docs/commands/COMMANDS.md)
+* [Frontend and theming documentatiob](docs/frontend/THEME.md)
+* [Project notes](docs/custom/NOTES.md)
+* [Troubleshooting](docs/local/TROUBLESHOOT.md)
+* [Working with Docksal](docs/local/DOCKSAL.md)
 
 ## Support and feedback
 
@@ -83,4 +83,4 @@ If you need support or find any errors or suggested improvements in this README 
 
 [Back to top](#[Project])
 
-*This is an auto-generated document that will be overridden by new versions. Keep any custom documents in the ```custom``` folder.*
+*<small>This is an auto-generated document. Keep any custom documents in the ```custom``` folder.</small>*
