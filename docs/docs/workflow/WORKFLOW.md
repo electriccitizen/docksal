@@ -1,6 +1,6 @@
 # Following a safe workflow (D8)
 
-[back to README](../README.md)
+[back to README](../../README.md)
 
 If you practice the workflow outlined below, you will avoid most common problems. This document includes a few specific ```fin``` (docksal) commands, but the general principles and commands apply to all local environments (DrupalVM, Lando, DDEV, ADD, Mamp, custom stack, etc.) and should be followed to make for a happier team.
 
@@ -100,7 +100,7 @@ The workflow above is designed to prevent you from making common mistakes:
 
 There are lots of things that can go wrong, but if you understand and follow the recommended workflow you will help to eliminate 99% of the typical problems.
 
-[back to README](../README.md)  
+[back to README](../../README.md)  
 
 
 

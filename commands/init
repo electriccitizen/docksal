@@ -62,6 +62,16 @@ if [[ "$PROJECT_ROOT" == "" ]]; then
 	exit 1
 fi
 
+# Make sure docksal is running
+if [[ $DOCKER_RUNNING == "true" ]]; then
+	echo -e "${green_bg} Step 1 ${NC}${green} Recreating services...${NC}"
+	fin reset -f
+else
+	echo -e "${green_bg} Step 1 ${NC}${green} Creating services...${NC}"
+	fin up
+fi
+
+
 # Check for a clean repository
 if ! [ -z "$(git status --untracked-files=no --porcelain)" ]; then
   # Uncommitted changes in tracked files
@@ -73,14 +83,8 @@ if ! [ -z "$(git status --untracked-files=no --porcelain)" ]; then
   exit 1
 fi
 
-# Make sure docksal is running
-if [[ $DOCKER_RUNNING == "true" ]]; then
-	echo -e "${green_bg} Step 1 ${NC}${green} Recreating services...${NC}"
-	fin reset -f
-else
-	echo -e "${green_bg} Step 1 ${NC}${green} Creating services...${NC}"
-	fin up
-fi
+# Pull the latest code from master
+git pull origin $GIT_BRANCH
 
 # Run composer install
 composer install

@@ -21,15 +21,9 @@ echo-yellow () { echo -e "${yellow}$1${NC}"; }
 sync_config ()
 {
 
-cd $PROJECT_ROOT
+#Check for cim flag
+CIMFLAG=$
 
-# Pull from Github
-echo -e  "${green_bg} Step 2 ${NC}${green} Pulling $GIT_BRANCH branch from Github...${NC}"
-git pull origin $GIT_BRANCH
-
-# Run composer install
-echo -e "${green_bg} Step 3 ${NC}${green} Running composer install...${NC}"
-composer install
 
 # No idea why this is needed but i abide
 if is_windows; then
@@ -38,16 +32,23 @@ if is_windows; then
 	echo
 fi
 
-# Configure things for local development environment.
-echo -e "${green_bg} Step 4 ${NC}${green} Importing config...${NC}"
-fin drush cim -y
-
-echo -e "${green_bg} Step 5 ${NC}${green} Running db updates...${NC}"
+# DB updates
+echo -e "${green_bg} Step 4 ${NC}${green} Running db updates...${NC}"
 fin drush updb -y
 
-echo -e "${green_bg} Step 6 ${NC}${green} Running entity updates...${NC}"
+# Entity definition updates
+echo -e "${green_bg} Step 5 ${NC}${green} Running entity updates...${NC}"
 fin drush entup -y
 
+# Import config
+echo -e "${green_bg} Step 6 ${NC}${green} Importing config...${NC}"
+if [CIMFLAG = "skip:cim"]; then
+    fin drush cim -y
+else
+    echo "Skipping configuration import"
+fi
+
+# Clear cache
 echo -e "${green_bg} Step 7 ${NC}${green} Clearing caches...${NC}"
 fin drush cr all
 

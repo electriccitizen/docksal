@@ -1,6 +1,7 @@
 # Theming basics
 
-[back to README](../README.md)
+[back to README](../../README.md)
+
 
 * We use npm and Pattern Lab to theme the site
 
@@ -60,4 +61,5 @@ We use an atomic approach to Pattern Lab file structure with Global elements for
 **Hiding files from Pattern Lab**
 By default, any file in components/\_patterns is going to be shown in Pattern Lab. You can prevent files from being shown in Pattern Lab by preceding the file name with an underscore. The file will sitll be active, but it will not by displayed in the local Pattern Lab instance. This is handy for things like files that are extended straight into Drupal like \_html.twig.
 
-[back to README](../README.md)
+[back to README](../../README.md)
+

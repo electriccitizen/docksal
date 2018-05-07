@@ -1,5 +1,6 @@
 # Troubleshooting
-[back to README](../README.md)
+[back to README](../../README.md)
+
 
 **```fin up``` or ```fin reset``` fails to start your services**
 
@@ -27,4 +28,5 @@ One method for fixing this problem:
 
 3. Run ```fin system reset```
 
-[back to README](../README.md)
+[back to README](../../README.md)
+

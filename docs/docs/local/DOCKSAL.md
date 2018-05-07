@@ -1,5 +1,5 @@
 # Working with Docksal
-[back to README](../README.md)
+[back to README](../../README.md)
 
 **You may want to view your web server logs to troubleshoot Drupal errors:**
 
@@ -65,7 +65,8 @@
 
 ```fin update```
 
-[back to README](../README.md)
+[back to README](../../README.md)
+
 
 
 
