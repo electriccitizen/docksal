@@ -83,15 +83,16 @@ if ! [ -z "$(git status --untracked-files=no --porcelain)" ]; then
   exit 1
 fi
 
-# Pull the latest code from master
+# Pull the latest code from
+echo -e  "${green_bg} Step 2 ${NC}${green} Pulling $GIT_BRANCH branch from Github...${NC}"
 git pull origin $GIT_BRANCH
 
 # Run composer install
+echo -e "${green_bg} Step 3 ${NC}${green} Running composer install...${NC}"
 composer install
 
 # Start database sync
-echo -e "${green_bg} Step 1 ${NC}${green} Import database from:${NC}"
-
+echo -e "${green_bg} Step 4 ${NC}${green} Sync database with upstream${NC}"
 time sync_db
 
 

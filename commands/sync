@@ -63,12 +63,8 @@ if [[ "$PROJECT_ROOT" == "" ]]; then
 fi
 
 # Make sure docksal is running
-if [[ $DOCKER_RUNNING == "true" ]]; then
-	echo -e "${green_bg} Step 1 ${NC}${green} Recreating services...${NC}"
-	fin reset -f
-else
-	echo -e "${green_bg} Step 1 ${NC}${green} Creating services...${NC}"
-	fin up
+echo -e "${green_bg} Step 1 ${NC}${green} Creating services...${NC}"
+fin up
 fi
 
 # Check for a clean repository
