@@ -82,6 +82,7 @@ if [ ! -d "../docs/commands" ]; then
   mkdir ../docs/commands
 fi
 
+cp -fp docs/docs/commands/COMMANDS.md ../docs/commands
 cp -fp docs/docs/commands/INIT.md ../docs/commands
 cp -fp docs/docs/commands/SYNC.md ../docs/commands
 cp -fp docs/docs/commands/VALIDATE.md ../docs/commands
