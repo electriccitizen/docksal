@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-file=docksal-local.env
+file=".docksal/docksal-local.env"
 DOCROOT=web
 GITBRANCH=master
 PANTHEON_SITE_ENV=$1
