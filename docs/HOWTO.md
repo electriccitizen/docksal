@@ -22,25 +22,15 @@ This is a composer package that gets added to the repositories section of your p
     }
   ],
 
+add to composer require 
+
+"electriccitizen/docksal": "~1"
+
 To update to a new or different version number, update the version and reference tags, and then run:
 
 ```composer install```
 
 to set up the new version. 
-
-You also need to add two entries to the "scripts" portion of your composer.json file. These are used to set the upstream environment (e.g. dev vs test vs live) and the correct upstream alias:
-
- "scripts": {
-    "post-install-cmd": [
-      "@drupal-scaffold",
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "./.docksal/setenv.sh dev @site.dev"
-    ],
-    "post-update-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "./.docksal/setenv.sh dev @sitedev"
-    ]
-  },
 
 After installing or updating you will also want to regenerate the documentation:
 
@@ -50,6 +40,9 @@ After installing or updating you will also want to regenerate the documentation:
 and then commit those changes. 
 
 Also make sure that you add and commit the settings.docksal.php file to your repository.
+
 Copy, update and commit local docksal files
 
 Don't forget to add to installer path
+
+".docksal": ["type:drupal-custom-module"]
