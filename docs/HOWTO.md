@@ -50,4 +50,6 @@ After installing or updating you will also want to regenerate the documentation:
 and then commit those changes. 
 
 Also make sure that you add and commit the settings.docksal.php file to your repository.
+Copy, update and commit local docksal files
 
+Don't forget to add to installer path
