@@ -26,6 +26,10 @@ add to composer require
 
 "electriccitizen/docksal": "~1"
 
+Don't forget to add to installer path
+
+".docksal": ["type:drupal-custom-module"]
+
 To update to a new or different version number, update the version and reference tags, and then run:
 
 ```composer install```
