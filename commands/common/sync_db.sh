@@ -7,6 +7,10 @@
 
 source "${PROJECT_ROOT}/.docksal/commands/common/sync_config.sh"
 
+SKIPCIM=$1
+
+
+
 # Console colors
 red='\033[0;31m'
 green='\033[0;32m'
@@ -22,18 +26,20 @@ echo-yellow () { echo -e "${yellow}$1${NC}"; }
 
 
 sync_db ()
+
 {
 cd $PROJECT_ROOT
 
   # Sync the database
-  echo-green "Syncing database from $PANTHEON_SITE_ENV..."
+  echo "Syncing database from $PANTHEON_SITE_ENV..."
   fin drush sql-sync $REMOTE_ALIAS @self -y
 
   # Move on to config sync
   _sync_config
+
 }
 
 _sync_config ()
 {
-    time sync_config
+    time sync_config "$SKIPCIM"
 }

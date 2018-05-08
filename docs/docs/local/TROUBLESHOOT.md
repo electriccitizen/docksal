@@ -6,6 +6,9 @@
 
 Make sure that your project was cloned into your defined Docksal project folder. By default this is ~/Projects unless you set up a different folder during initial setup. 
 
+**Cannot connect to the Docker daemon at tcp://192.168.64.100:2376. Is the docker daemon running?**
+
+```fin vm restart```
 
 **It looks like 'docksal' docker machine is not running.**
 Run 'fin vm start' to start it now? [y/n]: y

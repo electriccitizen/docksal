@@ -55,6 +55,19 @@ time sync_config $REPLY;
 all_done=1
 }
 
+# Accept and set arguments
+while [ ! $# -eq 0 ]
+do
+	case "$1" in
+		--skipcim | -sc)
+			SKIPCIM=TRUE
+			;;
+		--skipdb | -sd)
+			SKIPDB=TRUE
+			;;
+	esac
+	shift
+done
 
 # Execute
 if [[ "$PROJECT_ROOT" == "" ]]; then
@@ -65,7 +78,6 @@ fi
 # Make sure docksal is running
 echo -e "${green_bg} Step 1 ${NC}${green} Creating services...${NC}"
 fin up
-fi
 
 # Check for a clean repository
 if ! [ -z "$(git status --untracked-files=no --porcelain)" ]; then
@@ -90,17 +102,27 @@ composer install
 echo -e "${green_bg} Step 4 ${NC}${green} Import database from:${NC}"
 
 all_done=0
-while (( !all_done )); do
-    options=($PANTHEON_SITE_ENV 'none' 'exit')
-    select opt in "${options[@]}"; do
-        case $REPLY in
-            1) _sync_db; exit ;;
-            2) _sync_config; exit ;;
-            3) exit ;;
-            *) echo "Invalid option" ;;
-     esac
+
+if [[ ${SKIPDB} = "TRUE" ]]; then
+    echo "Skipping database import"
+    # Move on to config sync
+    _sync_config $SKIPCIM
+else
+    while (( !all_done )); do
+        options=($PANTHEON_SITE_ENV 'none' 'exit')
+        select opt in "${options[@]}"; do
+            case $REPLY in
+                1) _sync_db; exit ;;
+                2) _sync_config $SKIPCIM; exit ;;
+                3) exit ;;
+                *) echo "Invalid option" ;;
+         esac
+        done
     done
-done
+fi
+
+
+
 
 exit
 

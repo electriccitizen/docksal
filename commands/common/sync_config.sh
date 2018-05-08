@@ -21,9 +21,6 @@ echo-yellow () { echo -e "${yellow}$1${NC}"; }
 sync_config ()
 {
 
-#Check for cim flag argument
-CIMFLAG=$1
-
 # No idea why this is needed but i abide
 if is_windows; then
 	echo-green "Add ${VIRTUAL_HOST} to your hosts file (/etc/hosts), e.g.:"
@@ -32,7 +29,7 @@ if is_windows; then
 fi
 
 # DB updates
-echo -e "${green_bg} Step 5 ${NC}${green} Running db updates...${NC}"
+echo -e "${green_bg} Step 5 ${NC}${green} Running database updates...${NC}"
 fin drush updb -y
 
 # Entity definition updates
@@ -41,10 +38,10 @@ fin drush entup -y
 
 # Import config
 echo -e "${green_bg} Step 7 ${NC}${green} Importing config...${NC}"
-if [CIMFLAG = "skip:cim"]; then
-    fin drush cim -y
-else
+if [[ ${SKIPCIM} = "TRUE" ]]; then
     echo "Skipping configuration import"
+else
+    fin drush cim -y
 fi
 
 # Clear cache

@@ -47,13 +47,9 @@ if [[ "$PROJECT_ROOT" == "" ]]; then
 fi
 
 # Make sure docksal is running
-if [[ $DOCKER_RUNNING == "true" ]]; then
-	echo -e "${green_bg} Step 1 ${NC}${green} Recreating services...${NC}"
-	fin reset -f
-else
-	echo -e "${green_bg} Step 1 ${NC}${green} Creating services...${NC}"
-	fin up
-fi
+echo -e "${green_bg} Step 1 ${NC}${green} Creating services...${NC}"
+fin up
+
 
 # Check for a clean repository
 if ! [ -z "$(git status --untracked-files=no --porcelain)" ]; then

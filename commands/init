@@ -2,7 +2,7 @@
 
 ## Sync your local environment with fresh data and code from Pantheon development environment.
 ##
-## Usage: fin sync
+## Usage: fin init
 
 # Abort if anything fails
 set -e
@@ -55,7 +55,6 @@ time sync_config $REPLY;
 all_done=1
 }
 
-
 # Execute
 if [[ "$PROJECT_ROOT" == "" ]]; then
 	echo-red "\$PROJECT_ROOT is not set!"
@@ -93,7 +92,7 @@ composer install
 
 # Start database sync
 echo -e "${green_bg} Step 4 ${NC}${green} Sync database with upstream${NC}"
-time sync_db
+time sync_db $1
 
 
 exit
