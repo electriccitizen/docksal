@@ -30,6 +30,18 @@ Once the site is up, you are ready to start working:
 
 You can run [fin init](docs/commands/INIT.md) any time you want to reset or guarantee that your local environment is in a safe one-to-one state with your upstream environment. 
 
+Here are some other helpful ```fin``` commands that you will likely use in your day-to-day work:
+
+```fin start``` to start your project services (or ```fin up``` if you need to re-load configuration for xdebug etc.)
+
+```fin stop``` to stop your project services (recommended)
+
+See (working with Docksal)[docs/local/DOCKSAL.md] for additional Docksal commands and tips. 
+
+See [troubleshooting Docksal](docs/local/TROUBLESHOOT.md) if things go bad.
+
+
+
 ## Recommended workflow
 
 Here is a safe workflow that will help prevent lost work and other problems.

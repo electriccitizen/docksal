@@ -87,7 +87,7 @@ cp -fp docs/docs/commands/INIT.md ../docs/commands
 cp -fp docs/docs/commands/SYNC.md ../docs/commands
 cp -fp docs/docs/commands/VALIDATE.md ../docs/commands
 
-#Copy setup doc
+# Copy the setup doc
 cp -fp docs/docs/SETUP.md ../docs
 
 
