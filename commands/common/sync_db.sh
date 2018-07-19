@@ -9,8 +9,6 @@ source "${PROJECT_ROOT}/.docksal/commands/common/sync_config.sh"
 
 SKIPCIM=$1
 
-
-
 # Console colors
 red='\033[0;31m'
 green='\033[0;32m'
@@ -24,7 +22,6 @@ echo-green () { echo -e "${green}$1${NC}"; }
 echo-green-bg () { echo -e "${green_bg}$1${NC}"; }
 echo-yellow () { echo -e "${yellow}$1${NC}"; }
 
-
 sync_db ()
 
 {
@@ -32,7 +29,9 @@ cd $PROJECT_ROOT
 
   # Sync the database
   echo "Syncing database from $PANTHEON_SITE_ENV..."
-  fin drush sql-sync $REMOTE_ALIAS @self -y
+  fin drush sql-dump $REMOTE_ALIAS > db.sql -y
+  fin db import db.sql
+  rm db.sql
 
   #update admin pwd
   echo "Updating user 1 $USER1 password to admin..."
