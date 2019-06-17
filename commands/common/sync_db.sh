@@ -29,7 +29,7 @@ cd $PROJECT_ROOT
 
   # Sync the database
   echo "Syncing database from $PANTHEON_SITE_ENV..."
-  drush $REMOTE_ALIAS sql-dump > db.sql
+  fin drush $REMOTE_ALIAS sql-dump > db.sql
   fin db import db.sql
   rm db.sql
 
