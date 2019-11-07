@@ -32,10 +32,6 @@ fi
 echo -e "${green_bg} Step 5 ${NC}${green} Running database updates...${NC}"
 fin drush updb -y
 
-# Entity definition updates
-echo -e "${green_bg} Step 6 ${NC}${green} Running entity updates...${NC}"
-fin drush entup -y
-
 # Import config
 echo -e "${green_bg} Step 7 ${NC}${green} Importing config...${NC}"
 if [[ ${SKIPCIM} = "TRUE" ]]; then

@@ -15,11 +15,9 @@ The ```fin validate``` command is used pull in changes from team members to vali
 
 6. ```drush updb``` to verify and update database changes
 
-7. ```drush entup``` to verify and update entity definitions
+7. ```drush cim``` to import verify configuration sanity
 
-8. ```drush cim``` to import verify configuration sanity
-
-9. ```drush cr``` to verify a successful cache clear
+8. ```drush cr``` to verify a successful cache clear
 
 If you see errors while running ```fin validate```, you will need to work with the team to understand, fix, and commit conflicting file(s) or other errors. See other [available commands](COMMANDS.md) here.
 

@@ -20,8 +20,6 @@ Following these steps, will ensure that you are in one-to-one state with the dev
 
 ```fin drush updb``` to verify your db is up-to-date
 
-```fin drush entup``` to verify your entity definitions are current
-
 ```fin drush cr``` to verify a successful cache clear
 
 **Using fin sync**
@@ -54,8 +52,6 @@ Before deploying you need to make sure that your branch still works against the 
 ```composer install``` to install any new dependencies *[1]*
 
 ```fin drush updb``` to verify a working database udpate *[1]*
-
-```fin drush entup``` to run any needed entity updates *[1]*
 
 ```fin drush cim``` to verify a working configuration import *[1]*
 
@@ -94,7 +90,7 @@ The workflow above is designed to prevent you from making common mistakes:
 
 **If you IMPORT configuration before you export** you will lose your active work with no way to recover. If you pull from master and import new configuration prior to exporting your own work, it is gone forever.
 
-**If you don't run ```drush updb``` or ```drush entup``` to verify** after merging the master branch, you could inadverntely end up with a broken database.
+**If you don't run ```drush updb``` to verify** after merging the master branch, you could inadverntely end up with a broken database.
 
 **If you MERGE code from master before you export** you will lose the new configuration during the export.
 

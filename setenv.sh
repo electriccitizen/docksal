@@ -5,6 +5,7 @@ DOCROOT=web
 GITBRANCH=master
 PANTHEON_SITE_ENV=$1
 REMOTE_ALIAS=$2
+SITE_URI=newupstream.docksal
 
 # Set up remote aliases/site for docksal-local.env
 sed -i -e 's/DOCROOT=.*/DOCROOT='$DOCROOT'/' $file

@@ -15,11 +15,9 @@ The ```fin sync``` command is used to reset your local environment against the u
 
 6. ```drush updb``` to verify and update database changes
 
-7. ```drush entup``` to verify and update entity definitions
+7. ```drush cim``` to import verify configuration sanity
 
-8. ```drush cim``` to import verify configuration sanity
-
-9. ```drush cr``` to verify a successful cache clear
+8. ```drush cr``` to verify a successful cache clear
 
 After running ```fin sync``` successfully, you will have an exact clone of the upstream environment (code and database.) See other [available commands](COMMANDS.md) here.
 

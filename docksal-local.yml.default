@@ -17,8 +17,8 @@ services:
   #  see http://docksal.readthedocs.io/en/master/advanced/stack-settings/ and 
   #  https://hub.docker.com/r/docksal/cli/tags/.  
   cli:
-    image: docksal/cli:edge-php7.2
+    image: docksal/cli:2.9-php7.3
     # Uncomment to add support for xdebug - see http://docksal.readthedocs.io/en/master/tools/xdebug/.  
     environment:
-      - PANTHEON_SITE_ENV
+#      - PANTHEON_SITE_ENV
 #      - XDEBUG_ENABLED=1

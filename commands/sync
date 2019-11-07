@@ -7,6 +7,8 @@
 # Abort if anything fails
 set -e
 
+start=$SECONDS
+
 # SETTINGS
 SITE_DIRECTORY="default"
 DOCROOT_PATH="${PROJECT_ROOT}/${DOCROOT}"
@@ -121,8 +123,14 @@ else
     done
 fi
 
+# ULI
+echo -e "${green_bg} fin uli ${NC}${green} site login...${NC}"
+fin uli
 
-
+## Calculate Process time
+duration=$(( SECONDS - start ))
+## Echo Process time
+echo -en "${green_bg} Sync runtime ${NC}${green} ${duration} seconds ${NC}"
 
 exit
 

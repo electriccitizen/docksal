@@ -75,10 +75,6 @@ composer install
 echo -e "${green_bg} Step 3 ${NC}${green} Running database updates...${NC}"
 fin drush updb -y
 
-# Run entity updates
-echo -e "${green_bg} Step 4 ${NC}${green} Running entity updates...${NC}"
-fin drush entup -y
-
 # Configure things for local development environment.
 echo -e "${green_bg} Step 5 ${NC}${green} Importing config...${NC}"
 fin drush cim -y

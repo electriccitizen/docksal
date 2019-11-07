@@ -15,11 +15,9 @@ The ```fin init``` command is used to spin up your local environment for the fir
 
 6. ```drush updb``` to verify and update database changes
 
-7. ```drush entup``` to verify and update entity definitions
+7. ```drush cim``` to import verify configuration sanity
 
-8. ```drush cim``` to import verify configuration sanity
-
-9. ```drush cr``` to verify a successful cache clear
+8. ```drush cr``` to verify a successful cache clear
 
 After running ```fin init``` successfully, you will have an exact clone of the upstream environment (code and database.) During active development, you will typically run the [fin sync](SYNC.md) command instead of ```fin init```. See other [available commands](COMMANDS.md) here.
 
