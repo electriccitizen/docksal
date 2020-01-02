@@ -123,8 +123,8 @@ else
     done
 fi
 
-# ULI
-echo -e "${green_bg} fin uli ${NC}${green} site login...${NC}"
+# Drush ULI
+echo -e "${green_bg} fin uli ${NC}${green} Go ahead and login as admin:${NC}"
 fin uli
 
 ## Calculate Process time
