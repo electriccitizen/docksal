@@ -47,4 +47,13 @@ fin drush cr all
 echo -en "${green_bg} SYNC COMPLETE! ${NC} "
 echo -e "Open ${yellow}http://${VIRTUAL_HOST}${NC} in your browser to verify the setup."
 
+# Drush ULI
+echo -e "${green_bg} fin uli ${NC}${green} Go ahead and login as admin:${NC}"
+fin uli
+
+## Calculate Process time
+duration=$(( SECONDS - start ))
+## Echo Process time
+echo -en "${green_bg} Sync runtime ${NC}${green} ${duration} seconds ${NC}"
+
 }

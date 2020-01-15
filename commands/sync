@@ -123,15 +123,6 @@ else
     done
 fi
 
-# Drush ULI
-echo -e "${green_bg} fin uli ${NC}${green} Go ahead and login as admin:${NC}"
-fin uli
-
-## Calculate Process time
-duration=$(( SECONDS - start ))
-## Echo Process time
-echo -en "${green_bg} Sync runtime ${NC}${green} ${duration} seconds ${NC}"
-
 exit
 
 sleep 2
