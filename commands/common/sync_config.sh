@@ -44,6 +44,10 @@ fi
 echo -e "${green_bg} Step 8 ${NC}${green} Clearing caches...${NC}"
 fin drush cr all
 
+#update admin pwd
+echo "Updating user 1 $USER1 password to admin..."
+fin drush upwd $USER1 --password=admin
+
 echo -en "${green_bg} SYNC COMPLETE! ${NC} "
 echo -e "Open ${yellow}http://${VIRTUAL_HOST}${NC} in your browser to verify the setup."
 

@@ -34,10 +34,6 @@ cd $PROJECT_ROOT
   fin db import db.sql
   rm db.sql
 
-  #update admin pwd
-  echo "Updating user 1 $USER1 password to admin..."
-  fin drush upwd $USER1 --password=admin
-
   # Move on to config sync
   _sync_config
 
