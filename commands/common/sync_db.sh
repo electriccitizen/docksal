@@ -28,7 +28,7 @@ sync_db ()
 cd $PROJECT_ROOT
 
   # Sync the database
-  echo "Syncing database from $PANTHEON_SITE_ENV..."
+  echo "Syncing database from $REMOTE_ALIAS..."
   fin drush $REMOTE_ALIAS sql-dump > db.sql
   fin drush sql-drop --yes
   fin db import db.sql
