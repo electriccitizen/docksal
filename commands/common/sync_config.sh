@@ -42,7 +42,7 @@ fi
 
 # Clear cache
 echo -e "${green_bg} Step 8 ${NC}${green} Clearing caches...${NC}"
-fin drush cr all
+fin drush cr
 
 #update admin pwd
 echo "Updating user 1 $USER1 password to admin..."
