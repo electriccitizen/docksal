@@ -81,7 +81,7 @@ fin drush cim -y
 
 # Clear cache
 echo -e "${green_bg} Step 6 ${NC}${green} Clearing caches...${NC}"
-fin drush cr all
+fin drush cr
 
 echo -en "${green_bg} VALIDATION COMPLETE! ${NC} "
 echo -e "Open ${yellow}http://${VIRTUAL_HOST}${NC} in your browser to verify the setup."
