@@ -88,7 +88,7 @@ git pull origin $GIT_BRANCH
 
 # Run composer install
 echo -e "${green_bg} Step 3 ${NC}${green} Running composer install...${NC}"
-composer install
+fin composer install
 
 # Start database sync
 echo -e "${green_bg} Step 4 ${NC}${green} Sync database with upstream${NC}"
