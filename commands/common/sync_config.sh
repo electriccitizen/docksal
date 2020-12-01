@@ -48,6 +48,14 @@ fin drush cr
 echo "Updating user 1 $USER1 password to admin..."
 fin drush user:password $USER1 "admin"
 
+# Import config 2
+echo -e "${green_bg} Step 7 ${NC}${green} Importing config...again...${NC}"
+if [[ ${SKIPCIM} = "TRUE" ]]; then
+    echo "Skipping configuration import"
+else
+    fin drush cim -y
+fi
+
 echo -en "${green_bg} SYNC COMPLETE! ${NC} "
 echo -e "Open ${yellow}http://${VIRTUAL_HOST}${NC} in your browser to verify the setup."
 

@@ -2,6 +2,9 @@
 
 ## Drush 10 branch
 
+### 2020.09.22 - 1.5.2
+* Adding second config import after cache clear
+
 ### 2020.09.22 - 1.5.1
 * quick fix to ULI command to pass all arguments 
 
