@@ -28,10 +28,13 @@ sync_db ()
 cd $PROJECT_ROOT
 
   # Sync the database
-  echo "Syncing database from $REMOTE_ALIAS..."
+  echo "Pulling database from $REMOTE_ALIAS..."
   fin drush $REMOTE_ALIAS sql-dump > db.sql
+  echo "Dropping tables from local database ..."
   fin drush sql-drop --yes
+  echo "Importing tables from pulled database ..."
   fin db import db.sql
+  echo "Deleting temp db file ..."
   rm db.sql
 
   # Move on to config sync
