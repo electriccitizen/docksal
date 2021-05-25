@@ -78,8 +78,8 @@ if [[ "$PROJECT_ROOT" == "" ]]; then
 fi
 
 # Make sure docksal is running
-echo -e "${green_bg} Step 1 ${NC}${green} Creating services...${NC}"
-fin up
+echo -e "${green_bg} Step 1 ${NC}${green} Running Fin Restart, just in case there are platform updates...${NC}"
+fin restart
 
 # Check for a clean repository
 if ! [ -z "$(git status --untracked-files=no --porcelain)" ]; then
