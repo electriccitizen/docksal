@@ -22,3 +22,8 @@ services:
     environment:
 #      - PANTHEON_SITE_ENV
 #      - XDEBUG_ENABLED=1
+  # Add visual regression testing with backstopjs.
+  visual_regression_test:
+    image: backstopjs/backstopjs:5.3.2
+    volumes:
+      - ./tests/vr:/src
